@@ -1,0 +1,76 @@
+<style>
+    table, th, td{
+    border: 2px solid black;
+    margin: auto;
+
+    }
+
+    table{
+      width: 100%;
+      height: 200px;
+    }
+
+</style>
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Landing Page</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap Project</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-inverse">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Welcome</a>
+      </div>
+
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'BLOG_POSTS:index' %}">Landing Page</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <div class="jumbotron">
+
+        <div class="djangotwo">
+            {% if users %}
+              <table>
+                <thead>
+                  <th>Author</th>
+                  <th>Title</th>
+                  <th>Created On</th>
+                  <th>Email</th>
+                </thead>
+                {% for acc in users %}
+                <tr>
+                  <td>{{ acc.author }}</td>
+                  <td>{{ acc.title }}</td>
+                  <td>{{ acc.created_on }}</td>
+                  <td>{{ acc.email }}</td>
+                </tr>
+                {% endfor %}
+              </table>
+              {% else %}
+                  <p>NO USERS FOUND!</p>
+              {% endif%}
+        </div>
+
+
+
+      </div>
+    </div>
+
+
+  </body>
+</html>
